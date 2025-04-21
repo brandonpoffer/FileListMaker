@@ -18,10 +18,13 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import java.nio.*;
 import static java.nio.file.StandardOpenOption.*;
+import java.util.Scanner;
 
+/// list.remove();
 
 public class FileListMaker {
     static ArrayList<String> list = new ArrayList<>();
+    static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
         try
@@ -30,12 +33,32 @@ public class FileListMaker {
             for (String l : list) {
                 System.out.println(l);
             }
-            System.out.println("*****************************************8");
-            list.add("Banana");
+            System.out.println("*****************************************");
+            System.out.println("Want to add an item? 1 for yes, 2 for no");
+            int saveyesno = in.nextInt();
+            if(saveyesno == 1) {
+                in.nextLine();
+                String addeditem = in.nextLine();
+                list.add(addeditem);
+                System.out.println("Item added!");
+            }
+            else if(saveyesno == 2) {
+                System.out.println("No item added.");
+            }
+
             for (String l : list) {
                 System.out.println(l);
             }
-            
+
+            System.out.println("Save program? 1 for yes, 2 for no.");
+            int saveyesno1 = in.nextInt();
+            if(saveyesno1 == 1) {
+                SaveFile();
+            }
+            else if(saveyesno1 == 2) {
+                System.out.println("File not saved");
+            }
+
         }
         catch(FileNotFoundException e)
         {

@@ -1,3 +1,5 @@
 Apples
 Oranges
 Kiwi
+strawberries
+bread
